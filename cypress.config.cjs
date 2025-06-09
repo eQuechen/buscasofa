@@ -20,6 +20,7 @@ module.exports = defineConfig({
       'cypress/e2e/features/*.feature',
     ],
     baseUrl: 'http://localhost:5173/',
+    defaultCommandTimeout: 10000,
     async setupNodeEvents(on, config) {
       // This is required for the preprocessor to be able to generate JSON reports after each run, and more,
       await addCucumberPreprocessorPlugin(on, config);
