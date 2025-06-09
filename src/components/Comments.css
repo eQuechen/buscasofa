@@ -45,4 +45,73 @@
     cursor: pointer;
     width: 100%;
     font-weight: bold;
+    margin-bottom: 5px;
+}
+.edit-comment-form {
+    margin-top: 10px;
+    background: var(--white);
+    border: 1px solid var(--primary-blue);
+    border-radius: 5px;
+    padding: 10px;
+}
+.editar-comentario {
+    background: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.eliminar-comentario {
+    background: darkred;
+    color: var(--white);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+.edit-comment-form button[type="button"] {
+    background: darkred;
+    color: var(--white);
+    margin-top: 5px;
+}
+
+/* Modal de confirmación para eliminar */
+.modal-confirm {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: var(--white);
+    padding: 24px 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.2);
+    text-align: center;
+}
+.modal-content button {
+    margin: 10px 8px 0 8px;
+    padding: 8px 18px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+.modal-content .confirm {
+    background: darkred;
+    color: var(--white);
+}
+.modal-content .cancel {
+    background: var(--primary-blue);
+    color: var(--white);
 }
