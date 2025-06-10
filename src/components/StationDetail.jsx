@@ -1,8 +1,8 @@
 import { useParams, Link, useLocation } from 'react-router-dom';
 import Comments from './Comments';
 
-import './StationDetail.css'
-import './Form.css'
+import '@styles/stationDetail.css'
+import '@styles/form.css'
 
 
 function StationDetail({ stations, user }) {

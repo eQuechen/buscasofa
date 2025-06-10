@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './Comments.css';
+import '@styles/comments.css';
 
 function Comments({ stationId, user }) {
   const [comments, setComments] = useState([]);

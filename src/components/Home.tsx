@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import './Home.css'
+import '@styles/Home.css'
 import { COMUNIDADES_AUTONOMAS } from '../apis/fuelApiLib'
 
 

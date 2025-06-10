@@ -1,7 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup, Tooltip } from 'react-leaflet';
 import { useNavigate } from 'react-router-dom';
 import L from 'leaflet';
-import './FuelMap.css'
+import '@styles/FuelMap.css'
 import { useEffect, useMemo, useRef, useState } from 'react';
 import 'leaflet/dist/leaflet.css';
 
