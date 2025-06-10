@@ -1,7 +1,7 @@
 {
   "name": "Buscasofa",
   "short_name": "Buscasofa",
-  "description": "Llena tu depósito, Alimenta tu alma.",
+  "description": "Llena tu depósito,Alimenta tu alma.",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
