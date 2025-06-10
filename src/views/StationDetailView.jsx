@@ -1,11 +1,11 @@
 import { useParams, Link, useLocation } from 'react-router-dom';
-import Comments from './Comments';
+import Comments from '@components/Comments.jsx';
 
 import '@styles/stationDetail.css'
 import '@styles/form.css'
 
 
-function StationDetail({ stations, user }) {
+function StationDetailView({ stations, user }) {
   const location = useLocation();
   console.log(location);
   const {gobackLink} = location.state;
@@ -33,4 +33,4 @@ function StationDetail({ stations, user }) {
   );
 }
 
-export default StationDetail;
+export default StationDetailView;

@@ -12,7 +12,7 @@ Feature: Home Page
 
 // features/about.feature
 /*
-Feature: About Page
+Feature: AboutView Page
   Scenario: User visits the about page
     Given I open the about page
     Then I should see "Acerca de"

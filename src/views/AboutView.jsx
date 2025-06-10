@@ -1,7 +1,7 @@
 import React from 'react'
 import '@styles/about.css'
 
-const About = () => {
+const AboutView = () => {
     
     return (
     <div className="about-container">
@@ -14,4 +14,4 @@ const About = () => {
     )
 }
 
-export default About
+export default AboutView

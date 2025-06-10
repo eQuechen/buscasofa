@@ -8,14 +8,14 @@ import { FuelApi } from './apis/FuelApi';
 
 import Header from './components/Header';
 import FuelMap from './components/FuelMap';
-import About from './components/About';
+import AboutView from '@/views/AboutView.jsx';
 import Home from './components/Home';
-import StationDetail from './components/StationDetail';
+import StationDetailView from '@/views/StationDetailView.jsx';
 import FuelTable from './components/FuelTable';
 import Register from './components/Register';
 import Login from './components/Login';
 import Footer from './components/Footer';
-import { NotFound } from './NotFound';
+import { NotFoundView } from './views/NotFoundView.jsx';
 
 // Componente principal de la aplicación
 // Este componente es el punto de entrada de la aplicación y se encarga de gestionar las rutas y el estado global de la aplicación.
@@ -72,13 +72,13 @@ function App() {
         <Routes>
           <Route path="/registro" element={<Register />} />
           <Route path="/login" element={<Login onLogin={setUser} />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<AboutView />} />
 
           <Route path="/" element={<Home stations={stations} />} />
           <Route path="/mapa" element={<FuelMap stations={stations} />} />
           <Route path="/lista" element={<FuelTable stations={stations} />} />
-          <Route path="/station/:id" element={<StationDetail stations={stations} user={user} />} />
-          <Route path="*" element={<NotFound />} /> {/* Pagina no encontrada */}
+          <Route path="/station/:id" element={<StationDetailView stations={stations} user={user} />} />
+          <Route path="*" element={<NotFoundView />} /> {/* Pagina no encontrada */}
         </Routes>
       )}
       <Footer />

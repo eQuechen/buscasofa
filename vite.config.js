@@ -11,6 +11,8 @@ export default defineConfig({
     alias: {
       '@': '/src',
       '@styles': path.resolve(__dirname, 'src/styles'),
+      '@views': path.resolve(__dirname, 'src/views'),
+      '@components': path.resolve(__dirname, 'src/components'),
     },
   },
   plugins: [react()],
