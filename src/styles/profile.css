@@ -1,0 +1,32 @@
+.profile-view {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #fefefe;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-data p {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+}
+
+.profile-actions {
+    margin-top: 1rem;
+}
+
+.logout-button {
+    background-color: #d32f2f;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #b71c1c;
+}
+
+
