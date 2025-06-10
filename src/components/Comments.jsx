@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
 import '@styles/comments.css';
+import { useUser } from '../contexts/UserContext';
 
 function Comments({ stationId, user }) {
+
+  const { user : UserContext } = useUser();
+
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState('');
   const [msg, setMsg] = useState('');
@@ -17,7 +21,6 @@ function Comments({ stationId, user }) {
 
   useEffect(() => {
     fetchComments();
-    // eslint-disable-next-line
   }, [stationId]);
 
   const handleSubmit = async e => {
@@ -133,7 +136,7 @@ function Comments({ stationId, user }) {
             ) : (
               <div className="comment-row">
                 <div>{c.comment}</div>
-                {user && user === c.username && (
+                {user && user.name === c.username && (
                   <>
                     <button
                       className="editar-comentario"

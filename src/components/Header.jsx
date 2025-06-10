@@ -4,15 +4,13 @@ import logo from '../assets/logo.png';
 
 
 import '@styles/header.css'
+import { useUser } from '../contexts/UserContext';
 
-function Header({ user }) {
+function Header() {
+    const { user, setUser } = useUser();
+
     const handleLogout = () => {
-        // Lógica de cierre de sesión
-        console.log('Cerrar sesión');
-    };
-    const handleLogin = () => {
-        // Lógica de inicio de sesión
-        console.log('Iniciar sesión');
+        setUser(null);
     };
 
     return (
@@ -35,7 +33,7 @@ function Header({ user }) {
                     }
                     {user &&
                         <>
-                            <span style={{ marginRight: '1rem' }}>Bienvenido, <Link to="/perfil">{user}</Link></span>
+                            <span style={{ marginRight: '1rem' }}>Bienvenido, <Link to="/perfil">{user.name || user.email}</Link></span>
                             <button onClick={handleLogout}>Cerrar sesión</button>
                         </>
                     }

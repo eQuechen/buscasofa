@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import '@styles/form.css'
 
-function Login({ onLogin }) {
+import '@styles/form.css'
+import { useUser } from '../contexts/UserContext';
+
+function Login() {
+  const { setUser } = useUser();
   const [form, setForm] = useState({ email: '', password: '' });
   const [msg, setMsg] = useState('');
 
@@ -19,7 +22,11 @@ function Login({ onLogin }) {
     if (res.ok) {
       setMsg('¡Bienvenido, ' + data.username + '!');
       localStorage.setItem('token', data.token);
-      if (onLogin) onLogin(data.username);
+      setUser({
+        name: data.username,
+        email: form.email,
+        token: data.token
+      });
     } else {
       setMsg(data.message);
     }
