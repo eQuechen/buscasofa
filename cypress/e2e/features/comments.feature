@@ -30,3 +30,4 @@ Scenario: El usuario registrado puede responder a un comentario de otro usuario
   When pulsa el botón "Responder" junto a ese comentario
   And escribe una respuesta válida y pulsa el botón "Enviar respuesta"
   Then la respuesta aparece anidada debajo del comentario original
+  And el comentario propio del usuario aparece destacado
