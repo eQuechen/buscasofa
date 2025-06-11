@@ -1,8 +1,6 @@
 .comments-section {
     border-top: #ccc solid 1px; 
-    margin: 20px;
-    padding: 10px;
- 
+    margin: 50px 0;
 }
 .comments-section h2 {
     color: var(--primary-blue);
@@ -14,9 +12,13 @@
 }
 .comments-section li {
     background: var(--light-gray);
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 0.6rem;
+    margin-bottom: 0.7rem;
     border-radius: 5px;
+}
+.comments-section .own-comment {
+  background-color: #fffcdd;
+  border-left: 3px solid var(--light-blue);
 }
 .comments-section li p {
     margin: 0;
@@ -55,7 +57,8 @@
     border-radius: 5px;
     padding: 10px;
 }
-.comentario-button {
+.comentario-button,
+.comentario-button:hover {
     color: var(--white);
     border: none;
     padding: 8px 10px;
@@ -64,16 +67,16 @@
     margin-top: 5px;
     margin-right: 10px;
 }
-#editar-button {
-    color: var(--white);
+.editar-button,
+.editar-button:hover {
     background: var(--dark-yellow);
 }
-#eliminar-button {
-    color: var(--white);
+.eliminar-button,
+.eliminar-button:hover {
     background: darkred;
 }
-#responder-button {
-    color: var(--white);
+.responder-button,
+.responder-button:hover {
     background: var(--primary-blue);
 }
 .edit-comment-form button[type="button"] {
