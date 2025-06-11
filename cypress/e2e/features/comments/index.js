@@ -112,7 +112,7 @@ Then('el usuario debe ver un botón con el texto "Editar" junto a sus propios co
   cy.get('.comments-list .comment-row')
     .contains('Este es un comentario de prueba y DEBE editarse')
     .parent()
-    .find('button#editar-button')
+    .find('button.editar-button')
     .should('contain', 'Editar');
 });
 
@@ -120,7 +120,7 @@ When('pulsa el botón "Editar" junto a su comentario', () => {
   cy.get('.comments-list .comment-row')
     .contains('Este es un comentario de prueba y DEBE editarse')
     .parent()
-    .find('button#editar-button')
+    .find('button.editar-button')
     .click();
 });
 
@@ -156,7 +156,7 @@ When('pulsa el botón "Eliminar" junto a su comentario', () => {
   cy.get('.comments-list .comment-row')
     .contains('Este es un comentario de prueba y DEBE eliminarse')
     .parent()
-    .find('button#eliminar-button')
+    .find('button.eliminar-button')
     .click();
   cy.wait(2500);
 });
@@ -185,7 +185,7 @@ When('pulsa el botón "Responder" junto a ese comentario', () => {
   cy.get('.comments-list li')
     .contains(testUser.username).first()
     .parents('li').first()
-    .find('button#responder-button')
+    .find('button.responder-button')
     .should('be.visible')
     .click();
   cy.wait(2500);
@@ -201,8 +201,18 @@ When('escribe una respuesta válida y pulsa el botón "Enviar respuesta"', () =>
 });
 
 Then('la respuesta aparece anidada debajo del comentario original', () => {
-  cy.get('.comments-list li ul')
-    .contains(otherUser.username).first()
-    .parents('li')
+  cy.get('.comments-list li') 
+    .contains(otherUser.username) 
+    .parents('li') 
+    .find('ul') 
     .should('contain', 'Esta es una respuesta de prueba');
+});
+
+Then('el comentario propio del usuario aparece destacado', () => {
+  cy.get('.comments-list li').each(($el) => {
+    const username = $el.find('strong').text().trim();
+    if (username === otherUser.username) {
+      cy.wrap($el).should('have.class', 'own-comment');
+    }
+  });
 });
