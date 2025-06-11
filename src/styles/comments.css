@@ -31,6 +31,7 @@
 }
 .comments-section form input[type="text"],
 .comments-section form textarea {
+    width: auto;
     padding: 10px;
     margin-bottom: 10px;
     border: 1px solid var(--primary-blue);
@@ -54,26 +55,33 @@
     border-radius: 5px;
     padding: 10px;
 }
-.editar-comentario {
-    background: var(--primary-blue);
+.comentario-button {
     color: var(--white);
     border: none;
-    padding: 5px 10px;
+    padding: 8px 10px;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 5px;
+    margin-right: 10px;
 }
-.eliminar-comentario {
-    background: darkred;
+#editar-button {
     color: var(--white);
-    border: none;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 8px;
-    margin-top: 5px;
+    background: var(--dark-yellow);
+}
+#eliminar-button {
+    color: var(--white);
+    background: darkred;
+}
+#responder-button {
+    color: var(--white);
+    background: var(--primary-blue);
 }
 .edit-comment-form button[type="button"] {
+    background: darkred;
+    color: var(--white);
+    margin-top: 5px;
+}
+.reply-form button[type="button"] {
     background: darkred;
     color: var(--white);
     margin-top: 5px;
@@ -114,4 +122,12 @@
 .modal-content .cancel {
     background: var(--primary-blue);
     color: var(--white);
+}
+
+/* lista de comentarios anidados */
+.comments-list ul li {
+    margin-top: 15px;
+    margin-left: 20px;
+    border-left: 2px solid #b3b3b3;
+    padding-left: 12px;
 }
