@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 import '@styles/form.css';
 import {useUser} from '../contexts/UserContext';
@@ -9,7 +9,6 @@ function Register() {
     const {setUser} = useUser();
     const [form, setForm] = useState({username: '', email: '', password: ''});
     const [msg, setMsg] = useState('');
-    //const navigate = useNavigate();
 
     const handleChange = e => setForm({...form, [e.target.name]: e.target.value});
 
@@ -31,7 +30,6 @@ function Register() {
                 token: data.token
             });
             setMsg('¡Registro exitoso!');
-            //navigate('/perfil');
         } else {
             setMsg(data.message);
         }
