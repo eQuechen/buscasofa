@@ -58,7 +58,10 @@ function Comments({ stationId, user }) {
 const renderComments = (commentsList) => (
   <ul className="comments-list">
     {commentsList.map((c) => (
-      <li key={c.id}>
+      <li
+        key={c.id}
+        className={user && c.username === user.name ? 'own-comment' : ''}
+      >
         <strong>{c.username}</strong> <em>({new Date(c.created_at).toLocaleString()})</em>
         {editingId === c.id ? (
           <form onSubmit={handleEditSubmit} className="edit-comment-form">
@@ -75,8 +78,7 @@ const renderComments = (commentsList) => (
             <div>{c.comment}</div>
             {user && user.name !== c.username && (
               <button
-                id ="responder-button"
-                className="comentario-button"
+                className="comentario-button responder-button"
                 onClick={() => setReplyingId(c.id)}
               >
                 Responder
@@ -85,15 +87,13 @@ const renderComments = (commentsList) => (
             {user && user.name === c.username && (
               <>
                 <button
-                  id ="editar-button"
-                  className="comentario-button"
+                  className="comentario-button editar-button"
                   onClick={() => startEdit(c.id, c.comment)}
                 >
                   Editar
                 </button>
                 <button
-                  id ="eliminar-button"
-                  className="comentario-button"
+                  className="comentario-button eliminar-button"
                   onClick={() => startDelete(c.id)}
                 >
                   Eliminar
