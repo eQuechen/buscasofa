@@ -16,7 +16,6 @@ BeforeAll(() => {
   cy.get('input[name="email"]').type(testUser.email);
   cy.get('input[name="password"]').type(testUser.password);
   cy.get('form').submit();
-  cy.wait(2500);
   cy.contains(/usuario registrado correctamente|registro exitoso/i, { timeout: 5000 })
     .should('exist');
 });
@@ -34,7 +33,6 @@ Before({ tags: "@otroUsuario" }, () => {
   cy.get('input[name="email"]').type(otherUser.email);
   cy.get('input[name="password"]').type(otherUser.password);
   cy.get('form').submit();
-  cy.wait(2500);
   cy.contains(/usuario registrado correctamente|registro exitoso/i, { timeout: 5000 })
     .should('exist');
 });
@@ -53,7 +51,6 @@ Given('el usuario {string} ha iniciado sesión correctamente', (usuario) => {
   cy.get('input[name="email"]').type(user.email);
   cy.get('input[name="password"]').type(user.password);
   cy.get('button[type="submit"]').click();
-  cy.wait(2500);
   cy.contains(/bienvenido|login correcto/i, { timeout: 5000 })
     .should('exist');
 });
@@ -85,9 +82,8 @@ Then('el usuario debe ver un botón con el texto "Enviar" en el formulario de co
 When('escribe un comentario válido y pulsa el botón "Enviar"', () => {
   cy.get('textarea[placeholder="Escribe tu comentario..."]')
     .type('Este es un comentario de prueba');
-  cy.wait(1000);
-  cy.get('form.comment-form button[type="submit"]').click();
-  cy.wait(2500);
+  cy.get('form.comment-form button[type="submit"]')
+    .click();
 });
 
 Then('el nuevo comentario aparece en la lista de comentarios', () => {
@@ -100,9 +96,8 @@ Then('el nuevo comentario aparece en la lista de comentarios', () => {
 Given('ha creado un comentario previamente que va a editar', () => {
   cy.get('textarea[placeholder="Escribe tu comentario..."]')
     .type('Este es un comentario de prueba y DEBE editarse');
-  cy.wait(1000);
-  cy.get('form.comment-form button[type="submit"]').click();
-  cy.wait(2500);
+  cy.get('form.comment-form button[type="submit"]')
+    .click();
   cy.get('.comments-list')
     .contains('Este es un comentario de prueba y DEBE editarse')
     .should('be.visible');
@@ -128,10 +123,8 @@ When('modifica el texto del comentario y pulsa "Guardar"', () => {
   cy.get('form.edit-comment-form textarea')
     .clear()
     .type('Comentario EDITADO');
-  cy.wait(1000);
   cy.get('form.edit-comment-form button[type="submit"]')
     .click();
-  cy.wait(2500);
 });
 
 Then('el comentario actualizado aparece en la lista de comentarios', () => {
@@ -143,10 +136,8 @@ Then('el comentario actualizado aparece en la lista de comentarios', () => {
 Given('ha creado un comentario previamente que va a eliminar', () => {
   cy.get('textarea[placeholder="Escribe tu comentario..."]')
     .type('Este es un comentario de prueba y DEBE eliminarse');
-  cy.wait(1000);
   cy.get('form.comment-form button[type="submit"]')
     .click();
-  cy.wait(2500);
   cy.get('.comments-list')
     .contains('Este es un comentario de prueba y DEBE eliminarse')
     .should('be.visible');
@@ -158,13 +149,11 @@ When('pulsa el botón "Eliminar" junto a su comentario', () => {
     .parent()
     .find('button.eliminar-button')
     .click();
-  cy.wait(2500);
 });
 
 When('confirma la eliminación', () => {
   cy.get('.modal-confirm').should('be.visible');
   cy.get('.modal-confirm button.confirm').click();
-  cy.wait(2500);
 });
 
 Then('el comentario ya no aparece en la lista de comentarios', () => {
@@ -178,7 +167,6 @@ Given('existe al menos un comentario de otro usuario', () => {
   cy.get('.comments-list li')
     .contains(testUser.username)
     .should('have.length.greaterThan', 0);
-  cy.wait(1000);
 });
 
 When('pulsa el botón "Responder" junto a ese comentario', () => {
@@ -188,16 +176,13 @@ When('pulsa el botón "Responder" junto a ese comentario', () => {
     .find('button.responder-button')
     .should('be.visible')
     .click();
-  cy.wait(2500);
 });
 
 When('escribe una respuesta válida y pulsa el botón "Enviar respuesta"', () => {
   cy.get('form.reply-form textarea')
     .type('Esta es una respuesta de prueba');
-  cy.wait(1000);
   cy.get('form.reply-form button[type="submit"]')
     .click();
-  cy.wait(2500);
 });
 
 Then('la respuesta aparece anidada debajo del comentario original', () => {
