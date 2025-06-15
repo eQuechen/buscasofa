@@ -1,0 +1,24 @@
+.footer {
+    background: var(--dark-blue);
+    color: var(--yellow);
+    padding: 1rem 0;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    height: 10rem;
+    text-align: center;
+}
+
+.specialTeam {
+    color: var(--yellow);
+    font-size: x-large;
+    font-weight: normal;
+}
+
+li {
+    list-style: none;
+    margin-right: 1rem;
+    color: var(--light-blue);
+    margin-top: 1rem;
+    font-weight: bold;
+}
